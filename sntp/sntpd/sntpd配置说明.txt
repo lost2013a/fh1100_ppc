@@ -1,0 +1,33 @@
+1、sntp协议守护进程(daemon)
+
+主要负责通过SNTP协议上送设备时间状态，设备时间状态由内部功议通UDP接收获取（配套rvcrc程序）。
+
+2、程序配置（sntp_conf.xml）
+配置示例：
+/////////////////////////////////////////
+<?xml version="1.0" encoding="GBK" ?>
+<sntpInfo>
+    <SNTPCfg debug="1" offsetUS="0" sntpPort="123" role="2"/>
+    <RECEIVER_CONF netType="0" loacalIp="127.0.0.1" localPort="40000" remoteIp="224.6.6.6" remotePort="50000" logLevel="1" timeOutRecv="2000" timeOutSend="2000"/>
+</sntpInfo>
+/////////////////////////////////////////
+ 
+【SNTPCfg】节点： 
+     debug：调试标志，允许打印sntp帧内容。
+     offsetUS:补偿时间微秒(注意是0.5倍关系)
+     sntpPort：侦听端口  
+     role： 1： 录波器 2：GPS设备 3：TSM终端（时间管理系统）
+
+【RECEIVER_CONF】节点：接收器（内部通讯）配置。 
+
+     netType：0：组播 1：点对点 2：广播
+     loacalIp：本地IP地址
+     localPort：本地端口
+     remoteIp：远端IP地址：组播时使用
+     remotePort：远端端口（未使用）
+     logLevel：日志级别：0：不打印 1：错误级 3：跟踪级。设备投运后置0
+     timeOutSend：发送超时设置单位毫秒
+     timeOutRecv：接收超时设置单位毫秒
+http://www.cnblogs.com/leaven/archive/2012/08/22/2650772.html
+
+建议：在调试时【debug】置1，【logLevel】置3. 这样可以看到最全的信息，方便工程调试。

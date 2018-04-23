@@ -1,0 +1,2 @@
+安装好后执行以下语句,注意.后面空格
+. /opt/fsl-networking/QorIQ-SDK-V1.8/environment-setup-ppce500v2-fsl-linux-gnuspe

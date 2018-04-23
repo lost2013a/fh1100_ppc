@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="GBK" ?>
+<sntpInfo>
+    <SNTPCfg debug="1" offsetUS="0" sntpPort="123" role="2"/>
+    <RECEIVER_CONF netType="0" loacalIp="127.0.0.1" localPort="40000" remoteIp="224.6.6.6" remotePort="50000" logLevel="1" timeOutRecv="2000" timeOutSend="2000"/>
+</sntpInfo>
